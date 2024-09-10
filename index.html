@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pelotão Furacão</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Pelotão Furacão </h1>
+        <h2>BRABAT 21</h2>
+    </header>
+    <main>
+        <div class="container">
+            <p>Algumas fotos da missão</p>
+            <div class="gallery">
+                <img src="imagens/Festa 4ª Cia Despedidas.jpg" alt="Festa 4ª Cia Despedidas">
+                <img src="imagens/Festa 4ª Cia Despedidas (6).jpg" alt="Festa 4ª Cia Despedidas">
+                <img src="imagens/1 (10).jpg" alt="Foto Haiti">
+                <img src="imagens/1 (9).jpg" alt="Foto Haiti">
+                <!-- Botao download-->
+                <a href="Fotos Haiti_ Pel FURACAO.rar" download class="download-button">Baixar todas as fotos da missão</a>
+            </div>
+        </div>
+        <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close" id="close-lightbox">&times;</span>
+        <img id="lightbox-img" src="" alt="Imagem Ampliada">
+    </div>
+    
+    <script>
+        const galleryImages = document.querySelectorAll('.gallery img');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const closeLightbox = document.getElementById('close-lightbox');
+
+        galleryImages.forEach(image => {
+            image.addEventListener('click', () => {
+                lightboxImg.src = image.src;
+                lightbox.classList.add('active');
+            });
+        });
+
+        closeLightbox.addEventListener('click', () => {
+            lightbox.classList.remove('active');
+        });
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                lightbox.classList.remove('active');
+            }
+        });
+    </script>
+    </main>
+    <footer>
+        Site desenvolvido por © <strong>Jovelino Moraes</strong>
+    </footer>
+</body>
+</html>
